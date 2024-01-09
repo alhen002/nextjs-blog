@@ -1,9 +1,15 @@
-import Button from "@/components/Button";
-import { handleSubmit } from "@/lib/actions";
+"use client";
+
+import { useFormState } from "react-dom";
+import SubmitButton from "@/components/SubmitButton";
+import { sendMessage, State } from "@/lib/actions";
+import Paragraph from "@/components/Paragraph";
 
 function Form() {
+  const initialState: State = { errors: {} };
+  const [state, dispatch] = useFormState(sendMessage, initialState);
   return (
-    <form className="flex flex-col gap-4 mt-12" action={handleSubmit}>
+    <form className="flex flex-col gap-4 mt-12" action={dispatch}>
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className="tracking-tighter">
           Name
@@ -12,11 +18,12 @@ function Form() {
           id="name"
           name="name"
           type="text"
-          required
           placeholder="Your name"
           className="border rounded-md py-1 px-2 placeholder:text-sm focus:accent-neutral-800"
         />
+        <p className="text-red-500 text-sm">{state?.errors?.name}</p>
       </div>
+
       <div className="flex flex-col gap-2">
         <label htmlFor="email" className="tracking-tighter">
           Email
@@ -25,10 +32,10 @@ function Form() {
           id="email"
           name="email"
           type="email"
-          required
           placeholder="Your email"
           className="border rounded-md py-1 px-2 placeholder:text-sm focus:accent-neutral-800"
         />
+        <p className="text-red-500 text-sm">{state?.errors?.email}</p>
       </div>
       <div className="flex flex-col gap-2">
         <label htmlFor="message" className="tracking-tighter">
@@ -37,13 +44,13 @@ function Form() {
         <textarea
           id="message"
           name="message"
-          required
           rows={6}
           placeholder="Your message"
           className="border rounded-md py-1 px-2 placeholder:text-sm focus:accent-neutral-800"
         />
+        <p className="text-red-500 text-sm">{state?.errors?.message}</p>
       </div>
-      <Button type="submit">Submit</Button>
+      <SubmitButton>Submit</SubmitButton>
     </form>
   );
 }
