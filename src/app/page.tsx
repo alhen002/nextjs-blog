@@ -4,6 +4,7 @@ import Link from "next/link";
 import Paragraph from "@/components/Paragraph";
 import Socials from "@/components/Socials";
 import Card from "@/components/Card";
+import ImageSlider from "@/components/ImageSlider";
 
 export default function Home() {
   return (
@@ -26,13 +27,7 @@ export default function Home() {
           </Link>
           .
         </Paragraph>
-        <Image
-          src={"/me.webp"}
-          alt="this is me"
-          width={765}
-          height={765}
-          className="grayscale rounded-lg"
-        />
+        <ImageSlider />
         <Paragraph>other important text, should be inserted here.</Paragraph>
         <Card />
         <Card />
