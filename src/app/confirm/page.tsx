@@ -6,7 +6,7 @@ function Page() {
   return (
     <section
       className={
-        "animate-fade-in-top text-center flex flex-col gap-4 max-w-lg mx-auto"
+        "animate-fade-in-top text-center flex flex-col gap-6 max-w-lg mx-auto"
       }
     >
       <Paragraph>

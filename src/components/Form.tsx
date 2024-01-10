@@ -10,7 +10,7 @@ function Form() {
   const initialState: State = { errors: {} };
   const [state, dispatch] = useFormState(sendMessage, initialState);
   return (
-    <form className="flex flex-col gap-4 mt-12" action={dispatch}>
+    <form className="flex flex-col gap-4" action={dispatch}>
       <div className="flex flex-col gap-2">
         <label htmlFor="name" className="tracking-tighter">
           Name
