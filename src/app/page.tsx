@@ -8,7 +8,9 @@ import Card from "@/components/Card";
 export default function Home() {
   return (
     <>
-      <section className={"animate-fade-in-top flex flex-col gap-6"}>
+      <section
+        className={"animate-fade-in-top flex flex-col gap-6 max-w-lg mx-auto"}
+      >
         <Heading>hello, i&apos;m alhen002 👋</Heading>
         <Paragraph>
           i&apos;m a software developer and ecommerce enthusiast based in
