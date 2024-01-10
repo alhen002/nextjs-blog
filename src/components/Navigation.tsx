@@ -1,6 +1,7 @@
 import Link from "next/link";
 import NavLink from "@/components/NavLink";
 import Image from "next/image";
+import ThemeSwitch from "@/components/ThemeSwitch";
 
 const NavItems = [
   {
@@ -19,7 +20,7 @@ const NavItems = [
 
 function Navigation() {
   return (
-    <aside className={""}>
+    <aside className={"flex justify-between"}>
       <nav>
         <ul className={"flex gap-2"}>
           {NavItems.map((NavItem) => (
@@ -29,6 +30,7 @@ function Navigation() {
           ))}
         </ul>
       </nav>
+      <ThemeSwitch />
     </aside>
   );
 }

@@ -3,11 +3,12 @@ import Heading from "@/components/Heading";
 import Link from "next/link";
 import Paragraph from "@/components/Paragraph";
 import Socials from "@/components/Socials";
+import Card from "@/components/Card";
 
 export default function Home() {
   return (
     <>
-      <section className={"animate-fade-in flex flex-col gap-6"}>
+      <section className={"animate-fade-in-top flex flex-col gap-6"}>
         <Heading>hello, i&apos;m alhen002 👋</Heading>
         <Paragraph>
           i&apos;m a software developer and ecommerce enthusiast based in
@@ -23,7 +24,6 @@ export default function Home() {
           </Link>
           .
         </Paragraph>
-
         <Image
           src={"/me.webp"}
           alt="this is me"
@@ -31,6 +31,9 @@ export default function Home() {
           height={765}
           className="grayscale rounded-lg"
         />
+        <Paragraph>other important text, should be inserted here.</Paragraph>
+        <Card />
+        <Card />
         <Socials />
       </section>
     </>

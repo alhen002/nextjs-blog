@@ -1,5 +1,7 @@
 "use client";
 import { useFormStatus } from "react-dom";
+import { Loader2 } from "lucide-react";
+import React from "react";
 
 export default function SubmitButton({
   children,
@@ -9,6 +11,12 @@ export default function SubmitButton({
   const { pending } = useFormStatus();
 
   return (
-    <button disabled={pending}>{pending ? "Submitting..." : children}</button>
+    <button disabled={pending}>
+      {pending ? (
+        <Loader2 className="animate-spin" height={24} width={24} />
+      ) : (
+        children
+      )}
+    </button>
   );
 }

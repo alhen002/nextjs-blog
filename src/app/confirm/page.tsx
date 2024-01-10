@@ -4,7 +4,7 @@ import Link from "next/link";
 
 function Page() {
   return (
-    <section className={"animate-fade-in text-center flex flex-col gap-4"}>
+    <section className={"animate-fade-in-top text-center flex flex-col gap-4"}>
       <Paragraph>
         Your Email has been sent successfully.✨
         <br />I will get in contact soon.

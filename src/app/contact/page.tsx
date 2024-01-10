@@ -4,7 +4,7 @@ import Form from "@/components/Form";
 
 function ContactPage() {
   return (
-    <section className={"animate-fade-in"}>
+    <section className={"animate-fade-in-top"}>
       <Heading>let&apos;s sit for a quick coffee</Heading>
       <Paragraph>
         i&apos;m already curious to hear about your plans, doesn&apos;t matter
