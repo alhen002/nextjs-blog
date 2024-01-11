@@ -46,10 +46,10 @@ export async function sendMail(
   name: string,
   email: string,
   message: string,
-  to: string = "a.henting@posteo.de",
+  to: string = "hi@alexanderhenting.info",
 ) {
   const { data, error } = await resend.emails.send({
-    from: "Acme <onboarding@resend.dev>",
+    from: "ALEX <hi@alexanderhenting.info>",
     to: [to],
     subject: `Contact Form | ${name}`,
     react: EmailTemplate({ email, name, message }),
