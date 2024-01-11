@@ -3,38 +3,42 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, Circle } from "lucide-react";
 
-const Images = ["me.webp", "crash.jpeg", "dackel.jpeg"];
-function ImageSlider() {
+interface ImageSliderProps {
+  images: string[];
+  auto?: boolean;
+  timeInterval?: number;
+}
+function ImageSlider({ images, timeInterval = 3000, auto }: ImageSliderProps) {
   const [currentImage, setCurrentImage] = useState(0);
 
   function handleIncrease(index: number) {
     setCurrentImage(index);
   }
 
-  // Auto Interval
   useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prevImage) => (prevImage + 1) % Images.length);
-    }, 5000);
-
-    return () => {
-      clearInterval(interval);
-    };
-  }, [currentImage]);
+    if (auto) {
+      const interval = setInterval(() => {
+        setCurrentImage((prevImage) => (prevImage + 1) % images.length);
+      }, timeInterval);
+      return () => {
+        clearInterval(interval);
+      };
+    }
+  }, [currentImage, timeInterval, auto, images]);
 
   // OnKeyPress
 
   return (
     <div className="flex flex-col gap-1">
       <Image
-        src={`/${Images[currentImage]}`}
-        alt={Images[currentImage].split(".")[0]}
+        src={`/${images[currentImage]}`}
+        alt={images[currentImage].split(".")[0]}
         width={765}
         height={765}
         className="grayscale rounded-lg"
       />
       <div className="flex gap-2 mx-auto w-12">
-        {Images.map((Image, index) => (
+        {images.map((Image, index) => (
           <Circle
             key={index}
             onClick={() => handleIncrease(index)}

@@ -15,7 +15,10 @@ export type State = {
   };
 };
 
-export async function sendMessage(prevState: State, formData: FormData) {
+export async function sendMessage(
+  prevState: State,
+  formData: FormData,
+): Promise<State> {
   const validatedFields = MessageSchema.safeParse({
     name: formData.get("name"),
     email: formData.get("email"),
@@ -26,7 +29,7 @@ export async function sendMessage(prevState: State, formData: FormData) {
   if (!validatedFields.success) {
     const errors = validatedFields.error.flatten().fieldErrors;
     return {
-      errors,
+      errors: errors,
     };
   }
 

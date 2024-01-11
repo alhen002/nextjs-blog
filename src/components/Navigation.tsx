@@ -9,10 +9,6 @@ const NavItems = [
     href: "/",
   },
   {
-    name: "work",
-    href: "/work",
-  },
-  {
     name: "contact",
     href: "/contact",
   },

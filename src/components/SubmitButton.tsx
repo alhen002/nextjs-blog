@@ -13,7 +13,7 @@ export default function SubmitButton({
   return (
     <button
       disabled={pending}
-      className=" transition-colors duration-500 bg-neutral-50 border-neutral-400 hover:border-neutral-700 py-3 px-2 dark:bg-neutral-800 w-36 mx-auto rounded flex items-center justify-evenly border dark:border-neutral-400 font-light focus:accent-neutral-700   "
+      className="rounded border dark:border-neutral-700 dark:hover:border-neutral-400 border-neutral-400 hover:border-neutral-700 group py-3 px-4 items-center flex justify-between dark:bg-neutral-800 bg-neutral-50 transition-colors duration-500"
     >
       {pending ? (
         <Loader2 className="animate-spin" height={24} width={24} />

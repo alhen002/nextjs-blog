@@ -3,7 +3,7 @@ import Heading from "@/components/Heading";
 import Form from "@/components/Form";
 import Image from "next/image";
 
-function ContactPage() {
+export default function ContactPage() {
   return (
     <section
       className={"animate-fade-in-top max-w-lg mx-auto flex flex-col gap-6"}
@@ -18,5 +18,3 @@ function ContactPage() {
     </section>
   );
 }
-
-export default ContactPage;
