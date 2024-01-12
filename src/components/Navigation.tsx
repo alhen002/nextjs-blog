@@ -1,7 +1,13 @@
 import NavLink from "@/components/NavLink";
 import ThemeSwitch from "@/components/ThemeSwitch";
+import NavList from "@/components/NavList";
 
-const NavItems = [
+export type NavItem = {
+  name: string;
+  href: string;
+};
+
+const NavItems: NavItem[] = [
   {
     name: "home",
     href: "/",
@@ -16,13 +22,7 @@ function Navigation() {
   return (
     <aside className={"flex justify-between"}>
       <nav>
-        <ul className={"flex gap-2"}>
-          {NavItems.map((NavItem) => (
-            <li className={"hover:underline"} key={NavItem.name}>
-              <NavLink href={NavItem.href}>{NavItem.name}</NavLink>
-            </li>
-          ))}
-        </ul>
+        <NavList NavItems={NavItems} />
       </nav>
       <ThemeSwitch />
     </aside>
