@@ -4,32 +4,31 @@ import { Instagram } from "lucide-react";
 import Card from "@/components/Card";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 function CardWrapper() {
   const ref = useRef(null);
 
   useGSAP(() => {
-    gsap.from(ref.current, {
-      scrollTrigger: {
-        trigger: ref.current,
-        start: "top top",
-      },
-      x: 200,
-      scrub: 1,
-      duration: 2,
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.to(ref.current, {
+      scrollTrigger: ref.current,
+      opacity: 1,
+      delay: 0.5,
     });
   });
 
   return (
-    <>
+    <div>
       <Card
         ref={ref}
+        className="opacity-0"
         image={"/dackel.jpeg"}
         href="https://instagram.com/alhen002"
         title="@alhen002"
         icon={<Instagram strokeWidth={1.25} />}
       />
-    </>
+    </div>
   );
 }
 
