@@ -1,6 +1,4 @@
-import Link from "next/link";
 import NavLink from "@/components/NavLink";
-import Image from "next/image";
 import ThemeSwitch from "@/components/ThemeSwitch";
 
 const NavItems = [

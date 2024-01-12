@@ -6,6 +6,7 @@ import Socials from "@/components/Socials";
 import Card from "@/components/Card";
 import ImageSlider from "@/components/ImageSlider";
 import { ArrowUpRight, Instagram } from "lucide-react";
+import CardWrapper from "@/components/CardWrapper";
 
 export default function Home() {
   return (
@@ -37,12 +38,7 @@ export default function Home() {
           media, i spend most of my time on the ones below. I would love to get
           in touch.
         </Paragraph>
-        <Card
-          image={"/dackel.jpeg"}
-          href="https://instagram.com/alhen002"
-          title="@alhen002"
-          icon={<Instagram strokeWidth={1.25} />}
-        />
+        <CardWrapper />
         <Socials />
       </section>
     </>

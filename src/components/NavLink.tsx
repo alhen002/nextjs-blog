@@ -8,6 +8,7 @@ interface NavLinkProps {
   children: React.ReactNode;
   href: string;
 }
+
 function NavLink({ children, href }: NavLinkProps) {
   const pathName = usePathname();
   const isActive = pathName === href;

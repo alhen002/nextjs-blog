@@ -1,6 +1,4 @@
-import React from "react";
-import Paragraph from "@/components/Paragraph";
-import { ArrowUpRight } from "lucide-react";
+import React, { forwardRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -13,10 +11,16 @@ interface CardProps {
   href: string;
   className?: string;
 }
-function Card({ title, subtitle, icon, image, href, className }: CardProps) {
+export type Ref = HTMLAnchorElement;
+
+const Card = forwardRef<Ref, CardProps>(function CardFunction(
+  { title, subtitle, icon, image, href, className },
+  ref,
+) {
   return (
     <Link
       href={href}
+      ref={ref}
       className={cn(
         className,
         "rounded border dark:border-neutral-700 dark:hover:border-neutral-400 border-neutral-400 hover:border-neutral-700 group py-3 px-4 items-center flex justify-between dark:bg-neutral-800 bg-neutral-50 transition-colors duration-500",
@@ -36,6 +40,6 @@ function Card({ title, subtitle, icon, image, href, className }: CardProps) {
       {icon ? icon : null}
     </Link>
   );
-}
+});
 
 export default Card;
