@@ -1,6 +1,7 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
 import Link from "next/link";
+import Paragraph from "@/components/Paragraph";
 
 export function CustomPortableText({
   paragraphClasses,
@@ -12,7 +13,7 @@ export function CustomPortableText({
   const components: PortableTextComponents = {
     block: {
       normal: ({ children }) => {
-        return <p className={paragraphClasses}>{children}</p>;
+        return <Paragraph className={paragraphClasses}>{children}</Paragraph>;
       },
     },
     marks: {
