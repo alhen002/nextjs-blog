@@ -43,7 +43,7 @@ function ImageSlider({ images, timeInterval = 3000, auto }: ImageSliderProps) {
   }
 
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 snap-x">
       <div className="flex flex-row gap-2" {...handlers}>
         <Suspense fallback={<Loading />}>
           <Image
@@ -51,7 +51,7 @@ function ImageSlider({ images, timeInterval = 3000, auto }: ImageSliderProps) {
             alt={images[currentImage].split(".")[0]}
             width={765}
             height={765}
-            className="grayscale rounded-lg"
+            className="grayscale rounded-lg snap-center"
           />
         </Suspense>
       </div>
