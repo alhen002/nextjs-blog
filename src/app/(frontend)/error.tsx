@@ -32,7 +32,7 @@ export default function Error({
       >
         Try again
       </button>
-      <Link className="underline" href="/">
+      <Link className="underline" href="/public">
         Back Home
       </Link>
     </section>

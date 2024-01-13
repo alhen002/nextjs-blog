@@ -7,24 +7,21 @@ import Card from "@/components/Card";
 import ImageSlider from "@/components/ImageSlider";
 import { ArrowUpRight, Instagram } from "lucide-react";
 import CardWrapper from "@/components/CardWrapper";
+import { client } from "../../../sanity/lib/client";
+import { generalQuery } from "../../../sanity/lib/queries";
+import { General } from "@/lib/types";
+import { CustomPortableText } from "@/components/CustomPortableText";
+export const revalidate = 30;
+export default async function Home() {
+  const general: General = await client.fetch(generalQuery);
 
-export default function Home() {
   return (
     <>
       <section
         className={"animate-fade-in-top flex flex-col gap-6 max-w-lg mx-auto"}
       >
-        <Heading>hello, i&apos;m alhen002 👋</Heading>
-        <Paragraph>
-          i&apos;m a software developer and ecommerce enthusiast based in
-          vienna. I&apos;m obsessed with any tech related stuff, mangas & lps. i
-          currently work on a small saas that will help people managing their
-          orders from the fair-fashion marketplace{" "}
-          <Link className={"underline"} href={"https://avocadostore.de"}>
-            avocadostore
-          </Link>
-          . If you want to follow along, checkout the github repo below.
-        </Paragraph>
+        <Heading>{general.title}</Heading>
+        <CustomPortableText value={general.description} />
         <Card
           title="avoconnect"
           href="https://github.com/alhen002/avoconnect"

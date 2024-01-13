@@ -10,7 +10,7 @@ export default function NotFound() {
       }
     >
       <Paragraph>Could not find requested resource.</Paragraph>
-      <Link className="underline" href="/">
+      <Link className="underline" href="/public">
         Back Home
       </Link>
     </section>

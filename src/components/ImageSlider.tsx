@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { Suspense, useEffect, useState } from "react";
 import { ArrowLeft, ArrowRight, Circle } from "lucide-react";
-import Loading from "@/app/loading";
+import Loading from "@/app/(frontend)/loading";
 import { useSwipeable } from "react-swipeable";
 import { images } from "next/dist/build/webpack/config/blocks/images";
 interface ImageSliderProps {
