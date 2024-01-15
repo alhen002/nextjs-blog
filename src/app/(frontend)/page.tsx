@@ -1,19 +1,17 @@
-import Image from "next/image";
-import Heading from "@/components/Heading";
-import Link from "next/link";
-import Paragraph from "@/components/Paragraph";
-import Socials from "@/components/Socials";
-import Card from "@/components/Card";
-import ImageSlider from "@/components/ImageSlider";
+import Heading from "@/components/ui/Heading";
+import Paragraph from "@/components/ui/Paragraph";
+import Socials from "@/components/footer/Socials";
+import Card from "@/components/ui/Card";
+import ImageSlider from "@/components/ui/ImageSlider";
 import { ArrowUpRight, Instagram } from "lucide-react";
-import CardWrapper from "@/components/CardWrapper";
+import CardWrapper from "@/components/ui/CardWrapper";
 import { client } from "@/sanity/lib/client";
-import { generalQuery } from "@/sanity/lib/queries";
+import { GENERAL_QUERY } from "@/sanity/lib/queries";
 import { General } from "@/lib/types";
-import { CustomPortableText } from "@/components/CustomPortableText";
+import { CustomPortableText } from "@/components/backend/CustomPortableText";
 export const revalidate = 30;
 export default async function Home() {
-  const general: General = await client.fetch(generalQuery);
+  const general: General = await client.fetch(GENERAL_QUERY);
 
   return (
     <>

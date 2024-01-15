@@ -1,6 +1,6 @@
-import Paragraph from "@/components/Paragraph";
-import Heading from "@/components/Heading";
-import Form from "@/components/Form";
+import Paragraph from "@/components/ui/Paragraph";
+import Heading from "@/components/ui/Heading";
+import Form from "@/components/body/Form";
 import Image from "next/image";
 
 export default function ContactPage() {

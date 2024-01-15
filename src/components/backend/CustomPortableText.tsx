@@ -1,7 +1,7 @@
 import { PortableText, PortableTextComponents } from "@portabletext/react";
 import type { PortableTextBlock } from "@portabletext/types";
 import Link from "next/link";
-import Paragraph from "@/components/Paragraph";
+import Paragraph from "@/components/ui/Paragraph";
 
 export function CustomPortableText({
   paragraphClasses,

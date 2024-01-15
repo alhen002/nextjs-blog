@@ -1,9 +1,8 @@
 "use client"; // Error components must be Client Components
 
 import React, { useEffect } from "react";
-import Paragraph from "@/components/Paragraph";
 import Link from "next/link";
-import Heading from "@/components/Heading";
+import Heading from "@/components/ui/Heading";
 
 export default function Error({
   error,

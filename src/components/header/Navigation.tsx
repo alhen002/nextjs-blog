@@ -1,6 +1,6 @@
-import NavLink from "@/components/NavLink";
-import ThemeSwitch from "@/components/ThemeSwitch";
-import NavList from "@/components/NavList";
+import NavLink from "@/components/header/NavLink";
+import ThemeSwitch from "@/components/header/ThemeSwitch";
+import NavList from "@/components/header/NavList";
 
 export type NavItem = {
   name: string;
