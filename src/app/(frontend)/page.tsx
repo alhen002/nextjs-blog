@@ -12,9 +12,7 @@ import { client } from "@/lib/sanity.client";
 
 export default async function Home() {
   const general = await client.fetch<General>(GENERAL_QUERY, {
-    next: {
-      revalidate: 30,
-    },
+    cache: "no-store",
   });
 
   return (
