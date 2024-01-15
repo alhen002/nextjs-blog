@@ -9,7 +9,7 @@ import { GENERAL_QUERY } from "@/lib/sanity.queries";
 import { General } from "@/lib/types";
 import { CustomPortableText } from "@/components/backend/CustomPortableText";
 import { client } from "@/lib/sanity.client";
-export const revalidate = false;
+export const revalidate = 0;
 export default async function Home() {
   const general = await client.fetch<General>(GENERAL_QUERY);
 
