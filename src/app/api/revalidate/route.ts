@@ -5,7 +5,7 @@ import { parseBody } from "next-sanity/webhook";
 
 export async function POST(req: NextRequest) {
   try {
-    const { isValidSignature, body } = await parseBody<{ _type }>(
+    const { isValidSignature, body } = await parseBody<{ _type: string }>(
       req,
       process.env.SANITY_REVALIDATE_SECRET,
     );
