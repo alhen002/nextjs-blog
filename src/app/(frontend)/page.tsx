@@ -5,13 +5,17 @@ import Card from "@/components/ui/Card";
 import ImageSlider from "@/components/ui/ImageSlider";
 import { ArrowUpRight, Instagram } from "lucide-react";
 import CardWrapper from "@/components/ui/CardWrapper";
-import { client } from "@/sanity/lib/client";
-import { GENERAL_QUERY } from "@/sanity/lib/queries";
+import { GENERAL_QUERY } from "@/lib/sanity.queries";
 import { General } from "@/lib/types";
 import { CustomPortableText } from "@/components/backend/CustomPortableText";
-export const revalidate = 30;
+import { sanityFetch } from "@/lib/sanity.fetch";
+
 export default async function Home() {
-  const general: General = await client.fetch(GENERAL_QUERY);
+  // revalidate if there are changes to either the home document or to a page document (since they're referenced to in navItems)
+  const general: General = await sanityFetch({
+    query: GENERAL_QUERY,
+    tags: ["general"],
+  });
 
   return (
     <>
