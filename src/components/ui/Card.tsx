@@ -7,14 +7,14 @@ interface CardProps {
   image?: string;
   icon?: React.ReactNode;
   title: string;
-  subtitle?: string;
+  tags?: string[];
   href: string;
   className?: string;
 }
 export type Ref = HTMLAnchorElement;
 
 const Card = forwardRef<Ref, CardProps>(function CardFunction(
-  { title, subtitle, icon, image, href, className },
+  { title, tags, icon, image, href, className },
   ref,
 ) {
   return (
@@ -34,7 +34,13 @@ const Card = forwardRef<Ref, CardProps>(function CardFunction(
         ) : null}
         <div className="flex flex-col gap-0.5 justify-evenly">
           <h2 className="tracking-tight font-medium">{title}</h2>
-          {subtitle ? <p className="text-neutral-400">{subtitle}</p> : null}
+          <div className="flex flex-row gap-1">
+            {tags?.map((tag, index) => (
+              <p className="text-neutral-400" key={index}>
+                {tag}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
       {icon ? icon : null}

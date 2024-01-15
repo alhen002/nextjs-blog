@@ -19,6 +19,8 @@ export default defineConfig({
     structureTool({}),
     // Vision is a tool that lets you query your content with GROQ in the studio
     // https://www.sanity.io/docs/the-vision-plugin
-    visionTool({ defaultApiVersion: process.env.SANITY_APIVERSION }),
+    visionTool({
+      defaultApiVersion: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
+    }),
   ],
 });

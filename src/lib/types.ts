@@ -1,3 +1,5 @@
+import type { Image } from "sanity";
+
 interface Base {
   _createdAt: string;
   _id: string;
@@ -8,7 +10,15 @@ interface Base {
 
 export interface General extends Base {
   title: string;
+  showcase_project: Project;
   description: Block[];
+  caption: Block[];
+  media: Image[];
+}
+export interface Project extends Base {
+  title: string;
+  tags: string[];
+  github_uri: string;
 }
 
 export interface Block extends Base {

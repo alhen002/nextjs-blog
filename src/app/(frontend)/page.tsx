@@ -24,18 +24,14 @@ export default async function Home() {
         <Heading>{general.title}</Heading>
         <CustomPortableText value={general.description} />
         <Card
-          title="avoconnect"
-          href="https://github.com/alhen002/avoconnect"
-          subtitle="NEXT.JS"
+          title={general.showcase_project.title}
+          href={general.showcase_project.github_uri}
+          tags={general.showcase_project.tags}
           className={"group"}
           icon={<ArrowUpRight className="group-hover:animate-rotate" />}
         />
-        <ImageSlider images={["me.webp", "crash.jpeg", "dackel.jpeg"]} />
-        <Paragraph>
-          Although it&apos;s been decades since i was actively posting on social
-          media, i spend most of my time on the ones below. I would love to get
-          in touch.
-        </Paragraph>
+        <ImageSlider images={general?.media} auto />
+        <CustomPortableText value={general.caption} />
         <CardWrapper />
         <Socials />
       </section>
