@@ -8,12 +8,13 @@ import CardWrapper from "@/components/ui/CardWrapper";
 import { GENERAL_QUERY } from "@/lib/sanity.queries";
 import { General } from "@/lib/types";
 import { CustomPortableText } from "@/components/backend/CustomPortableText";
-import { sanityFetch } from "@/lib/sanity.fetch";
+import { client } from "@/lib/sanity.client";
 
 export default async function Home() {
-  const general: General = await sanityFetch({
-    query: GENERAL_QUERY,
-    tags: ["general"],
+  const general = await client.fetch<General>(GENERAL_QUERY, {
+    next: {
+      revalidate: 30,
+    },
   });
 
   return (
