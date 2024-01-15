@@ -11,7 +11,6 @@ import { CustomPortableText } from "@/components/backend/CustomPortableText";
 import { sanityFetch } from "@/lib/sanity.fetch";
 
 export default async function Home() {
-  // revalidate if there are changes to either the home document or to a page document (since they're referenced to in navItems)
   const general: General = await sanityFetch({
     query: GENERAL_QUERY,
     tags: ["general"],
