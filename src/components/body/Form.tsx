@@ -1,9 +1,9 @@
 "use client";
 
 import { useFormState } from "react-dom";
-import SubmitButton from "@/components/SubmitButton";
+import SubmitButton from "@/components/body/SubmitButton";
 import { sendMessage, State } from "@/lib/actions";
-import Paragraph from "@/components/Paragraph";
+import Paragraph from "@/components/ui/Paragraph";
 import { ArrowRight } from "lucide-react";
 
 function Form() {

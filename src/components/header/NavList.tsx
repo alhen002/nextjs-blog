@@ -1,6 +1,6 @@
 "use client";
-import NavLink from "@/components/NavLink";
-import { NavItem } from "@/components/Navigation";
+import NavLink from "@/components/header/NavLink";
+import { NavItem } from "@/components/header/Navigation";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useRef } from "react";

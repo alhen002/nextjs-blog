@@ -1,9 +1,9 @@
 "use server";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
-import { EmailTemplate } from "@/components/EmailTemplate";
+import { EmailTemplate } from "@/components/backend/EmailTemplate";
 import { Resend } from "resend";
-import { MessageSchema } from "@/lib/definitions";
+import { MessageSchema } from "@/lib/validators";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 

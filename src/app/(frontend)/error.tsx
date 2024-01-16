@@ -1,9 +1,8 @@
 "use client"; // Error components must be Client Components
 
 import React, { useEffect } from "react";
-import Paragraph from "@/components/Paragraph";
 import Link from "next/link";
-import Heading from "@/components/Heading";
+import Heading from "@/components/ui/Heading";
 
 export default function Error({
   error,
@@ -32,7 +31,7 @@ export default function Error({
       >
         Try again
       </button>
-      <Link className="underline" href="/">
+      <Link className="underline" href="/public">
         Back Home
       </Link>
     </section>

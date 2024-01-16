@@ -1,12 +1,14 @@
 "use client";
 import Image from "next/image";
 import { Suspense, useEffect, useState } from "react";
-import { ArrowLeft, ArrowRight, Circle } from "lucide-react";
-import Loading from "@/app/loading";
+import { Circle } from "lucide-react";
+import Loading from "@/app/(frontend)/loading";
 import { useSwipeable } from "react-swipeable";
-import { images } from "next/dist/build/webpack/config/blocks/images";
+import { urlForImage } from "@/lib/sanity.image";
+import type { Image as ImageType } from "sanity";
+
 interface ImageSliderProps {
-  images: string[];
+  images: ImageType[];
   auto?: boolean;
   timeInterval?: number;
 }
@@ -25,7 +27,7 @@ function ImageSlider({ images, timeInterval = 3000, auto }: ImageSliderProps) {
         (prevImage) => (prevImage - 1 + images.length) % images.length,
       ),
   });
-
+  // auto
   useEffect(() => {
     if (auto) {
       const interval = setInterval(() => {
@@ -37,21 +39,16 @@ function ImageSlider({ images, timeInterval = 3000, auto }: ImageSliderProps) {
     }
   }, [currentImage, timeInterval, auto, images]);
 
-  // implement ontouch functionality
-  function handleTouchStart() {
-    // handle touch start event
-  }
-
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col gap-1 snap-x">
       <div className="flex flex-row gap-2" {...handlers}>
         <Suspense fallback={<Loading />}>
           <Image
-            src={`/${images[currentImage]}`}
-            alt={images[currentImage].split(".")[0]}
+            src={urlForImage(images[currentImage])}
+            alt="asdf"
             width={765}
             height={765}
-            className="grayscale rounded-lg"
+            className="grayscale rounded-lg snap-center"
           />
         </Suspense>
       </div>

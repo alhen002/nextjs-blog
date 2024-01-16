@@ -1,5 +1,5 @@
 import React from "react";
-import Paragraph from "@/components/Paragraph";
+import Paragraph from "@/components/ui/Paragraph";
 import Link from "next/link";
 
 export default function ConfirmPage() {

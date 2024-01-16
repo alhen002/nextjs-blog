@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Paragraph from "@/components/Paragraph";
+import Paragraph from "@/components/ui/Paragraph";
 import React from "react";
 
 export default function NotFound() {
@@ -10,7 +10,7 @@ export default function NotFound() {
       }
     >
       <Paragraph>Could not find requested resource.</Paragraph>
-      <Link className="underline" href="/">
+      <Link className="underline" href="/public">
         Back Home
       </Link>
     </section>

@@ -1,5 +1,4 @@
-import Paragraph from "@/components/Paragraph";
-import Heading from "@/components/Heading";
+import Paragraph from "@/components/ui/Paragraph";
 
 interface EmailTemplateProps {
   name: string;
