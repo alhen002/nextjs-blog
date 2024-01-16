@@ -10,7 +10,7 @@ import { CustomPortableText } from "@/components/backend/CustomPortableText";
 import { client } from "@/lib/sanity.client";
 import { Suspense } from "react";
 import Loading from "@/app/(frontend)/loading";
-import { Metadata, ResolvingMetadata } from "next";
+import { Metadata } from "next";
 //TODO: WORK ON PROPER REVALIDATION
 export const revalidate = 0;
 
@@ -34,7 +34,9 @@ export default async function Home() {
   return (
     <>
       <section
-        className={"animate-fade-in-top flex flex-col gap-6 max-w-lg mx-auto"}
+        className={
+          "animate-fade-in-top flex flex-col gap-6 max-w-lg mx-auto z-20"
+        }
       >
         <Heading>{general.title}</Heading>
         <CustomPortableText value={general.description} />
@@ -49,7 +51,6 @@ export default async function Home() {
           <Images />
         </Suspense>
         <CustomPortableText value={general.caption} />
-        <CardWrapper />
         <Socials />
       </section>
     </>

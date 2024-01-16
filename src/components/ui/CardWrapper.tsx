@@ -5,8 +5,13 @@ import Card from "@/components/ui/Card";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Social } from "@/lib/types";
+import { urlForImage } from "@/lib/sanity.image";
 
-function CardWrapper() {
+interface CardWrapperProps {
+  social: Social;
+}
+function CardWrapper({ social }: CardWrapperProps) {
   const ref = useRef(null);
 
   useGSAP(() => {
@@ -23,10 +28,10 @@ function CardWrapper() {
     <div>
       <Card
         ref={ref}
-        className="opacity-0"
-        image={"/dackel.jpeg"}
-        href="https://instagram.com/alhen002"
-        title="@alhen002"
+        className="opacity-0 mb-4"
+        image={urlForImage(social.accountImage)}
+        href={social.accountURL}
+        title={social.accountName}
         icon={<Instagram strokeWidth={1.25} />}
       />
     </div>

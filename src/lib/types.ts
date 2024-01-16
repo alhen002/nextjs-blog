@@ -16,6 +16,7 @@ export interface General extends Base {
   media: Image[];
   seo_title: string;
   seo_description: string;
+  socials: Social[];
 }
 
 export interface Contact extends Base {
@@ -43,4 +44,11 @@ export interface Span extends Base {
   _type: "span";
   marks: string[];
   text: string;
+}
+
+export interface Social extends Base {
+  accountName: string;
+  accountURL: string;
+  isFavorite: boolean;
+  accountImage: Image;
 }

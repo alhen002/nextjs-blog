@@ -8,7 +8,7 @@ import { Contact } from "@/lib/types";
 import { Metadata } from "next";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const contact = await client.fetch<Contact>(GENERAL_QUERY);
+  const contact = await client.fetch<Contact>(CONTACT_QUERY);
 
   return {
     title: contact.seo_title,

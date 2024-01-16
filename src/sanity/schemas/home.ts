@@ -17,6 +17,10 @@ export default defineType({
       title: "Media",
     },
     {
+      name: "socials",
+      title: "Socials",
+    },
+    {
       name: "seo",
       title: "SEO",
     },
@@ -78,6 +82,26 @@ export default defineType({
       description: "Caption shown underneath the Image Slider.",
       type: "blockContent",
       group: "media",
+    },
+    {
+      name: "socials",
+      title: "Socials",
+      description: "",
+      type: "array",
+      group: "socials",
+      of: [
+        {
+          name: "account",
+          title: "Account",
+          type: "object",
+          fields: [
+            { name: "accountName", title: "Account name", type: "string" },
+            { name: "accountURL", title: "Account URL", type: "string" },
+            { name: "isFavorite", title: "Favorit", type: "boolean" },
+            { name: "accountImage", title: "Account Image", type: "image" },
+          ],
+        },
+      ],
     },
     {
       name: "seo_title",

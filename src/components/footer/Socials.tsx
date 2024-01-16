@@ -1,7 +1,11 @@
 import React from "react";
-import Heading from "@/components/ui/Heading";
+
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
+import { SOCIAL_QUERY } from "@/lib/sanity.queries";
+import { client } from "@/lib/sanity.client";
+import { General, Social } from "@/lib/types";
+import CardWrapper from "@/components/ui/CardWrapper";
 
 const socialItems = [
   {
@@ -14,15 +18,23 @@ const socialItems = [
   },
 ];
 
-function Socials() {
+async function Socials() {
+  const { socials } = await client.fetch<General>(SOCIAL_QUERY);
   return (
     <ul className="flex flex-col gap-2">
-      {socialItems.map((socialItem) => (
-        <li key={socialItem.name} className="underline flex items-end gap-0.5">
-          <ArrowUpRight width={17} height={17} />
-          <Link href={socialItem.href}>{socialItem.name}</Link>
-        </li>
-      ))}
+      {socials.map((socialItem) => {
+        return !socialItem.isFavorite ? (
+          <li
+            key={socialItem.accountName}
+            className="underline flex items-end gap-0.5"
+          >
+            <ArrowUpRight width={17} height={17} />
+            <Link href={socialItem.accountURL}>{socialItem.accountName}</Link>
+          </li>
+        ) : (
+          <CardWrapper key={socialItem.accountName} social={socialItem} />
+        );
+      })}
     </ul>
   );
 }

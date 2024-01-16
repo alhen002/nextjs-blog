@@ -11,8 +11,12 @@ export default defineType({
       title: "Project Information",
     },
     {
-      name: "repository",
-      title: "Repository",
+      name: "links",
+      title: "Links",
+    },
+    {
+      name: "seo",
+      title: "SEO",
     },
   ],
   fields: [
@@ -34,7 +38,7 @@ export default defineType({
       title: "GitHub URL",
       type: "string",
       validation: (rule: any) => rule.required(),
-      group: "repository",
+      group: "links",
     },
   ],
 });
