@@ -3,21 +3,22 @@ import { defineArrayMember, defineField, defineType } from "sanity";
 
 export default defineType({
   name: "general",
-  title: "General",
+  title: "Home",
   type: "document",
   icon: HomeIcon,
   groups: [
     {
-      name: "header",
-      title: "Header",
+      name: "info",
+      title: "Information",
+    },
+
+    {
+      name: "media",
+      title: "Media",
     },
     {
       name: "seo",
       title: "SEO",
-    },
-    {
-      name: "media",
-      title: "Media",
     },
   ],
   fields: [
@@ -26,7 +27,7 @@ export default defineType({
       description: "This field is the title of your personal website.",
       title: "Title",
       type: "string",
-      group: "header",
+      group: "info",
       validation: (rule: any) => rule.required(),
     },
     {
@@ -34,7 +35,7 @@ export default defineType({
       description: "Used for the personal website subheader.",
       title: "Description",
       type: "blockContent",
-      group: "header",
+      group: "info",
     },
     {
       name: "showcase_project",
@@ -43,25 +44,7 @@ export default defineType({
       title: "Showcase Project",
       type: "reference",
       to: [{ type: "projects" }],
-      group: "header",
-    },
-    {
-      name: "seo_title",
-      description: "SEO title",
-      title: "Title",
-      type: "string",
-      group: "seo",
-      validation: (rule: any) =>
-        rule.max(60).warning("Max Length 60 characters."),
-    },
-    {
-      name: "seo_description",
-      description: "SEO meta description",
-      title: "Description",
-      type: "string",
-      group: "seo",
-      validation: (rule: any) =>
-        rule.max(300).warning("Max Length 300 characters."),
+      group: "info",
     },
     {
       name: "media",
@@ -91,10 +74,28 @@ export default defineType({
     },
     {
       name: "caption",
-      title: "Caption",
+      title: "Media Caption",
       description: "Caption shown underneath the Image Slider.",
       type: "blockContent",
       group: "media",
+    },
+    {
+      name: "seo_title",
+      description: "SEO title",
+      title: "Title",
+      type: "string",
+      group: "seo",
+      validation: (rule: any) =>
+        rule.max(60).warning("Max Length 60 characters."),
+    },
+    {
+      name: "seo_description",
+      description: "SEO meta description",
+      title: "Description",
+      type: "string",
+      group: "seo",
+      validation: (rule: any) =>
+        rule.max(300).warning("Max Length 300 characters."),
     },
   ],
 });

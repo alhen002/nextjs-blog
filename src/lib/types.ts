@@ -14,6 +14,15 @@ export interface General extends Base {
   description: Block[];
   caption: Block[];
   media: Image[];
+  seo_title: string;
+  seo_description: string;
+}
+
+export interface Contact extends Base {
+  title: string;
+  description: Block[];
+  seo_title: string;
+  seo_description: string;
 }
 export interface Project extends Base {
   title: string;

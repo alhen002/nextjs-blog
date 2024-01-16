@@ -11,9 +11,49 @@ export default defineType({
       name: "general",
       title: "General",
     },
+    {
+      name: "pages",
+      title: "Pages",
+    },
   ],
   fields: [
-    { name: "asdf", title: "Title", type: "string", group: "general" },
-    { name: "asdf2", title: "Title", type: "string", group: "general" },
+    {
+      name: "pages",
+      title: "Pages",
+      type: "array",
+      of: [
+        {
+          name: "Page",
+          title: "page",
+          type: "object",
+          groups: [
+            {
+              name: "general",
+              title: "General",
+            },
+            {
+              name: "seo",
+              title: "SEO",
+            },
+          ],
+
+          fields: [
+            {
+              name: "p_name",
+              title: "Page Name",
+              type: "string",
+              group: "general",
+            },
+            {
+              name: "p_slug",
+              title: "Page Slug",
+              type: "slug",
+              group: "general",
+            },
+          ],
+        },
+      ],
+      group: "general",
+    },
   ],
 });

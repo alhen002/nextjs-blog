@@ -1,17 +1,32 @@
 import Heading from "@/components/ui/Heading";
-import Paragraph from "@/components/ui/Paragraph";
 import Socials from "@/components/footer/Socials";
 import Card from "@/components/ui/Card";
 import ImageSlider from "@/components/ui/ImageSlider";
 import { ArrowUpRight, Instagram } from "lucide-react";
 import CardWrapper from "@/components/ui/CardWrapper";
-import { GENERAL_QUERY } from "@/lib/sanity.queries";
+import { GENERAL_QUERY, MEDIA_QUERY } from "@/lib/sanity.queries";
 import { General } from "@/lib/types";
 import { CustomPortableText } from "@/components/backend/CustomPortableText";
 import { client } from "@/lib/sanity.client";
-
+import { Suspense } from "react";
+import Loading from "@/app/(frontend)/loading";
+import { Metadata, ResolvingMetadata } from "next";
 //TODO: WORK ON PROPER REVALIDATION
 export const revalidate = 0;
+
+async function Images() {
+  const { media } = await client.fetch(MEDIA_QUERY);
+  return <ImageSlider images={media} />;
+}
+
+export async function generateMetadata(): Promise<Metadata> {
+  const general = await client.fetch<General>(GENERAL_QUERY);
+
+  return {
+    title: general.seo_title,
+    description: general.seo_description,
+  };
+}
 
 export default async function Home() {
   const general = await client.fetch<General>(GENERAL_QUERY);
@@ -30,7 +45,9 @@ export default async function Home() {
           className={"group"}
           icon={<ArrowUpRight className="group-hover:animate-rotate" />}
         />
-        <ImageSlider images={general?.media} auto />
+        <Suspense fallback={<Loading />}>
+          <Images />
+        </Suspense>
         <CustomPortableText value={general.caption} />
         <CardWrapper />
         <Socials />

@@ -13,7 +13,7 @@ export default function ConfirmPage() {
         Your Email has been sent successfully.✨
         <br />I will get in contact soon.
       </Paragraph>
-      <Link className="underline" href="/public">
+      <Link className="underline" href="/">
         Back Home
       </Link>
     </section>

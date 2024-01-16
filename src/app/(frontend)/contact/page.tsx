@@ -1,19 +1,30 @@
 import Paragraph from "@/components/ui/Paragraph";
 import Heading from "@/components/ui/Heading";
 import Form from "@/components/body/Form";
-import Image from "next/image";
+import { client } from "@/lib/sanity.client";
+import { CONTACT_QUERY, GENERAL_QUERY } from "@/lib/sanity.queries";
+import { CustomPortableText } from "@/components/backend/CustomPortableText";
+import { Contact } from "@/lib/types";
+import { Metadata } from "next";
 
-export default function ContactPage() {
+export async function generateMetadata(): Promise<Metadata> {
+  const contact = await client.fetch<Contact>(GENERAL_QUERY);
+
+  return {
+    title: contact.seo_title,
+    description: contact.seo_description,
+  };
+}
+
+export default async function ContactPage() {
+  const contact: Contact = await client.fetch(CONTACT_QUERY);
+
   return (
     <section
       className={"animate-fade-in-top max-w-lg mx-auto flex flex-col gap-6"}
     >
-      <Heading>let&apos;s sit for a quick coffee</Heading>
-      <Paragraph>
-        i&apos;m already curious to hear about your plans, doesn&apos;t matter
-        if it&apos;s an online store, physical retail or a new digital strategy.
-        i am sure i can give support.
-      </Paragraph>
+      <Heading>{contact.title}</Heading>
+      <CustomPortableText value={contact.description} />
       <Form />
     </section>
   );
