@@ -40,13 +40,15 @@ export default async function Home() {
       >
         <Heading>{general.title}</Heading>
         <CustomPortableText value={general.description} />
-        <Card
-          title={general.showcase_project.title}
-          href={general.showcase_project.github_uri}
-          tags={general.showcase_project.tags}
-          className={"group"}
-          icon={<ArrowUpRight className="group-hover:animate-rotate" />}
-        />
+        {general.showcase_project ? (
+          <Card
+            title={general.showcase_project.title}
+            href={general.showcase_project.github_uri}
+            tags={general.showcase_project.tags}
+            className={"group"}
+            icon={<ArrowUpRight className="group-hover:animate-rotate" />}
+          />
+        ) : null}
         <Suspense fallback={<Loading />}>
           <Images />
         </Suspense>
